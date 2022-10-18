@@ -99,35 +99,30 @@ public class DataRepository {
 
         for (int i = 0; i < list.size(); i++) {
             DataDAO data = new DataDAO();
-            data.setX_SWIFI_MGR_NO((String) list.get(i).get("X_SWIFI_MGR_NO"));
-            data.setX_SWIFI_WRDOFC((String) list.get(i).get("X_SWIFI_WRDOFC"));
-            data.setX_SWIFI_MAIN_NM((String) list.get(i).get("X_SWIFI_MAIN_NM"));
-            data.setX_SWIFI_ADRES1((String) list.get(i).get("X_SWIFI_ADRES1"));
-            data.setX_SWIFI_ADRES2((String) list.get(i).get("X_SWIFI_ADRES2"));
-            data.setX_SWIFI_INSTL_FLOOR((String) list.get(i).get("X_SWIFI_INSTL_FLOOR"));
-            data.setX_SWIFI_INSTL_TY((String) list.get(i).get("X_SWIFI_INSTL_TY"));
-            data.setX_SWIFI_INSTL_MBY((String) list.get(i).get("X_SWIFI_INSTL_MBY"));
-            data.setX_SWIFI_SVC_SE((String) list.get(i).get("X_SWIFI_SVC_SE"));
-            data.setX_SWIFI_CMCWR((String) list.get(i).get("X_SWIFI_CMCWR"));
-            data.setX_SWIFI_CNSTC_YEAR((String) list.get(i).get("X_SWIFI_CNSTC_YEAR"));
-            data.setX_SWIFI_INOUT_DOOR((String) list.get(i).get("X_SWIFI_INOUT_DOOR"));
-            data.setX_SWIFI_REMARS3((String) list.get(i).get("X_SWIFI_REMARS3"));
-            data.setLAT((String) list.get(i).get("LAT"));
-            data.setLNT((String) list.get(i).get("LNT"));
-            data.setWORK_DTTM((String) list.get(i).get("WORK_DTTM"));
+            data.setMgrNum((String) list.get(i).get("X_SWIFI_MGR_NO"));
+            data.setFc((String) list.get(i).get("X_SWIFI_WRDOFC"));
+            data.setMainNum((String) list.get(i).get("X_SWIFI_MAIN_NM"));
+            data.setAdd1((String) list.get(i).get("X_SWIFI_ADRES1"));
+            data.setAdd2((String) list.get(i).get("X_SWIFI_ADRES2"));
+            data.setInstlFloor((String) list.get(i).get("X_SWIFI_INSTL_FLOOR"));
+            data.setInstlTy((String) list.get(i).get("X_SWIFI_INSTL_TY"));
+            data.setInstlMby((String) list.get(i).get("X_SWIFI_INSTL_MBY"));
+            data.setSvc((String) list.get(i).get("X_SWIFI_SVC_SE"));
+            data.setCmcwr((String) list.get(i).get("X_SWIFI_CMCWR"));
+            data.setCstcYear((String) list.get(i).get("X_SWIFI_CNSTC_YEAR"));
+            data.setInoutDoor((String) list.get(i).get("X_SWIFI_INOUT_DOOR"));
+            data.setRemarS3((String) list.get(i).get("X_SWIFI_REMARS3"));
+            data.setLat((String) list.get(i).get("LAT"));
+            data.setLnt((String) list.get(i).get("LNT"));
+            data.setWorkDttm((String) list.get(i).get("WORK_DTTM"));
             dataList.add(data);
         }
 
         return dataList;
     }
 
-    public void setDist(double LAT, double LNT){ //현재 좌표를 넣음
-        for (int i = 0; i < dataList.size(); i++) {
-            double LAT2 = Double.parseDouble(dataList.get(i).getLAT());
-            double LNT2 = Double.parseDouble(dataList.get(i).getLNT());
-            double d = distance(LAT, LNT, LAT2, LNT2);
-            dataList.get(i).setDist(d);
-        }
+    public void calcDist(double LAT, double LNT){ //현재 좌표를 넣음
+
     }
 
 
@@ -149,5 +144,13 @@ public class DataRepository {
     //radian(라디안)을 10진수로 변환
     private static double rad2deg(double rad) {
         return (rad * 180 / Math.PI);
+    }
+
+    public List<DataDAO> getDataList() {
+        return dataList;
+    }
+
+    public void setDataList(List<DataDAO> dataList) {
+        this.dataList = dataList;
     }
 }

@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,54 +8,63 @@
 <body>
 <h3>와이파이 정보 구하기</h3>
 
-<div>
-    <a href="index.html">홈</a>
-    <a href="history.html">위치 히스토리 목록</a>
-    <a href="importwifi.html">Open API 와이파이 정보 가져오기</a>
-</div>
+<a href="index.jsp">홈</a>
+<a href="histories.jsp">위치 히스토리 목록</a>
+<a href="load-wifi">Open API 와이파이 정보 가져오기</a>
 
-<div>
-    <form action="data" method="post">
-        LAT:<input type="text" id="LAT">
-        LNT:<input type="text" id="LNT">
-        <button type="button" id="location">내 위치 가져오기</button>
-        <input type="submit" value="근처 WI-FI 정보 보기"/>
-    </form>
-</div>
+<form action="aroundwifi" method="get">
+    LAT:<input type="text" id="LAT">
+    LNT:<input type="text" id="LNT">
+    <button type="button" id="location">내 위치 가져오기</button>
+    <input type="submit" value="근처 WI-FI 정보 보기"/>
+</form>
 
-<div>
-    <table>
-        <div>
-            <tr>
-                <th>거리
-                </td>
-                <th>관리번호</th>
-                <th>자치구
-                </td>
-                <th>와이파이명</th>
-                <th>도로명주소</th>
-                <th>설치위치(층)</th>
-                <th>설치유형</th>
-                <th>설치기관</th>
-                <th>서비스구분</th>
-                <th>망종류
-                </td>
-                <th>설치년도</th>
-                <th>실내외구분</th>
-                <th>wifi접속환경</th>
-                <th>X좌표
-                </td>
-                <th>Y좌표</th>
-                <th>작업일자</th>
-            </tr>
+<table>
+    <thead>
+    <tr>
+        <th>거리</th>
+        <th>관리번호</th>
+        <th>자치구</th>
+        <th>와이파이명</th>
+        <th>도로명주소</th>
+        <th>설치위치(층)</th>
+        <th>설치유형</th>
+        <th>설치기관</th>
+        <th>서비스구분</th>
+        <th>망종류</th>
+        <th>설치년도</th>
+        <th>실내외구분</th>
+        <th>wifi접속환경</th>
+        <th>X좌표</th>
+        <th>Y좌표</th>
+        <th>작업일자</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <c:forEach var="data" items="${datalist}">
 
-        </div>
-        <div>
-        </div>
-    </table>
-</div>
+        <td>${data.dist}</td>
+        <td>${data.mgrNum}</td>
+        <td>${data.fc}</td>
+        <td>${data.mainNum}</td>
+        <td>${data.add1}</td>
+        <td>${data.add2}</td>
+        <td>${data.instlFloor}</td>
+        <td>${data.instlTy}</td>
+        <td>${data.instlMby}</td>
+        <td>${data.svc}</td>
+        <td>${data.cmcwr}</td>
+        <td>${data.cstcYear}</td>
+        <td>${data.inoutDoor}</td>
+        <td>${data.remarS3}</td>
+        <td>${data.lat}</td>
+        <td>${data.lnt}</td>
+        <td>${data.workDttm}</td>
 
-
+    </tr>
+    </c:forEach>
+    </tbody>
 </table>
 <script>
 
