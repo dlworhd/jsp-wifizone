@@ -14,10 +14,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class DataRepository {
+public class JSONParsing {
 
-    DataDAO dataDAO = new DataDAO();
-    List<DataDAO> dataList = new ArrayList<>();
 
 
     final String KEY = "465a4d786c646c77313133524e43717a";
@@ -61,10 +59,12 @@ public class DataRepository {
         return str;
     }
 
+    //JSON Data -> JSONObject로 파싱
     public JSONObject parsingToJSONObject(String str) throws ParseException {
         JSONParser jsonParser = new JSONParser();
         return (JSONObject) jsonParser.parse(str);
     }
+
 
     public JSONObject JSONObjectByService(JSONObject baseJSONObject, String service) {
         return (JSONObject) baseJSONObject.get(service);
@@ -90,15 +90,23 @@ public class DataRepository {
         return (JSONArray) baseJSONObject.get(service);
     }
 
-    public List<DataDAO> JSONArrayConvertToArrayList(JSONArray jsonArray) {
+    public List<JSONObject> JSONArrayConvertToArrayList(JSONArray jsonArray) {
         ArrayList<JSONObject> list = new ArrayList<>();
+        Calculator calculator = new Calculator();
         for (int k = 0; k < jsonArray.size(); k++) {
             JSONObject tempJson = (JSONObject) jsonArray.get(k);
             list.add(tempJson);
         }
+        return list;
+    }
+
+
+    public List<WifiData> JSONToDBdataArray(List<JSONObject> list){
+
+        List<WifiData> dataList = new ArrayList<>();
 
         for (int i = 0; i < list.size(); i++) {
-            DataDAO data = new DataDAO();
+            WifiData data = new WifiData();
             data.setMgrNum((String) list.get(i).get("X_SWIFI_MGR_NO"));
             data.setFc((String) list.get(i).get("X_SWIFI_WRDOFC"));
             data.setMainNum((String) list.get(i).get("X_SWIFI_MAIN_NM"));
@@ -112,45 +120,15 @@ public class DataRepository {
             data.setCstcYear((String) list.get(i).get("X_SWIFI_CNSTC_YEAR"));
             data.setInoutDoor((String) list.get(i).get("X_SWIFI_INOUT_DOOR"));
             data.setRemarS3((String) list.get(i).get("X_SWIFI_REMARS3"));
-            data.setLat((String) list.get(i).get("LAT"));
-            data.setLnt((String) list.get(i).get("LNT"));
+            data.setLat2(Double.parseDouble((String) list.get(i).get("LAT")));
+            data.setLnt2(Double.parseDouble((String) list.get(i).get("LNT")));
             data.setWorkDttm((String) list.get(i).get("WORK_DTTM"));
+
             dataList.add(data);
         }
 
         return dataList;
     }
 
-    public void calcDist(double LAT, double LNT){ //현재 좌표를 넣음
 
-    }
-
-
-
-    public static double distance(double lat1, double lon1, double lat2, double lon2) {
-        double theta = lon1 - lon2;
-        double dist = Math.sin(deg2rad(lat1)) * Math.sin(deg2rad(lat2)) + Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * Math.cos(deg2rad(theta));
-        dist = Math.acos(dist);
-        dist = rad2deg(dist);
-        dist = dist * 60 * 1.1515 * 1609.344;
-
-        return dist; //단위 meter
-    }
-
-    private static double deg2rad(double deg) {
-        return (deg * Math.PI / 180.0);
-    }
-
-    //radian(라디안)을 10진수로 변환
-    private static double rad2deg(double rad) {
-        return (rad * 180 / Math.PI);
-    }
-
-    public List<DataDAO> getDataList() {
-        return dataList;
-    }
-
-    public void setDataList(List<DataDAO> dataList) {
-        this.dataList = dataList;
-    }
 }

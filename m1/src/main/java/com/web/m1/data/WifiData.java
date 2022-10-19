@@ -1,8 +1,7 @@
 package com.web.m1.data;
 
 
-public class DataDAO implements Comparable<DataDAO> {
-
+public class WifiData implements Comparable<WifiData> {
 
     private double dist;
     private String mgrNum;
@@ -18,33 +17,12 @@ public class DataDAO implements Comparable<DataDAO> {
     private String cstcYear;
     private String inoutDoor;
     private String remarS3;
-    private String lat;
-    private String lnt;
+    private double lat2;
+    private double lnt2;
     private String workDttm;
 
-    public DataDAO() {
+    public WifiData() {
     }
-    public DataDAO(double dist, String mgrNum, String fc, String mainNum, String add1, String add2, String instlFloor, String instlTy, String instlMby, String svc, String cmcwr, String cstcYear, String inoutDoor, String remarS3, String lat, String lnt, String workDttm) {
-        this.dist = dist;
-        this.mgrNum = mgrNum;
-        this.fc = fc;
-        this.mainNum = mainNum;
-        this.add1 = add1;
-        this.add2 = add2;
-        this.instlFloor = instlFloor;
-        this.instlTy = instlTy;
-        this.instlMby = instlMby;
-        this.svc = svc;
-        this.cmcwr = cmcwr;
-        this.cstcYear = cstcYear;
-        this.inoutDoor = inoutDoor;
-        this.remarS3 = remarS3;
-        this.lat = lat;
-        this.lnt = lnt;
-        this.workDttm = workDttm;
-    }
-
-
 
     public double getDist() {
         return dist;
@@ -158,20 +136,20 @@ public class DataDAO implements Comparable<DataDAO> {
         this.remarS3 = remarS3;
     }
 
-    public String getLat() {
-        return lat;
+    public double getLat2() {
+        return lat2;
     }
 
-    public void setLat(String lat) {
-        this.lat = lat;
+    public void setLat2(double lat2) {
+        this.lat2 = lat2;
     }
 
-    public String getLnt() {
-        return lnt;
+    public double getLnt2() {
+        return lnt2;
     }
 
-    public void setLnt(String lnt) {
-        this.lnt = lnt;
+    public void setLnt2(double lnt2) {
+        this.lnt2 = lnt2;
     }
 
     public String getWorkDttm() {
@@ -199,14 +177,14 @@ public class DataDAO implements Comparable<DataDAO> {
                 ", cstcYear='" + cstcYear + '\'' +
                 ", inoutDoor='" + inoutDoor + '\'' +
                 ", remarS3='" + remarS3 + '\'' +
-                ", lat='" + lat + '\'' +
-                ", lnt='" + lnt + '\'' +
+                ", lat2='" + lat2 + '\'' +
+                ", lnt2='" + lnt2 + '\'' +
                 ", workDttm='" + workDttm + '\'' +
                 '}';
     }
 
     @Override
-    public int compareTo(DataDAO o) {
+    public int compareTo(WifiData o) {
         if (this.getDist() > o.getDist()) {
             return 1;
         } else if (this.getDist() == o.getDist()) {

@@ -1,4 +1,3 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: ejay
@@ -14,27 +13,32 @@
     <title>Title</title>
 </head>
 <body>
-<thead>
-  <tr>
-    <td>ID</td>
-    <td>X좌표</td>
-    <td>Y좌표</td>
-    <td>조회일자</td>
-    <td>비고</td>
-  </tr>
-</thead>
+<table>
+    <thead>
+    <tr>
+        <td>ID</td>
+        <td>X좌표</td>
+        <td>Y좌표</td>
+        <td>조회일자</td>
+        <td>비고</td>
+    </tr>
+    </thead>
 
-<tbody>
-    <c:forEach var="data" items="{histories}">
-      <tr>
-        <td>${data.id}</td>
-        <td>${data.x}</td>
-        <td>${data.y}</td>
-        <td>${data.date}</td>
-        <button>삭제</button>
-      </tr>
+    <tbody>
+    <c:forEach var="data" items="${histories}">
+        <tr>
+            <td>${data.id}</td>
+            <td>${data.lat1}</td>
+            <td>${data.lnt1}</td>
+            <td>${data.date}</td>
+            <td>
+                <button type="button" onclick="location.href='/remove?id=${data.id}' ">삭제</button>
+            </td>
+        </tr>
     </c:forEach>
-</tbody>
+
+    </tbody>
+</table>
 
 </body>
 </html>

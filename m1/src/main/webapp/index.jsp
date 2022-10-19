@@ -9,12 +9,12 @@
 <h3>와이파이 정보 구하기</h3>
 
 <a href="index.jsp">홈</a>
-<a href="histories.jsp">위치 히스토리 목록</a>
+<a href="history">위치 히스토리 목록</a>
 <a href="load-wifi">Open API 와이파이 정보 가져오기</a>
 
-<form action="aroundwifi" method="get">
-    LAT:<input type="text" id="LAT">
-    LNT:<input type="text" id="LNT">
+<form action="/aroundwifi" method="get">
+    LAT:<input type="text" id="lat1" name="lat1">
+    LNT:<input type="text" id="lnt1" name="lnt1">
     <button type="button" id="location">내 위치 가져오기</button>
     <input type="submit" value="근처 WI-FI 정보 보기"/>
 </form>
@@ -41,28 +41,27 @@
     </tr>
     </thead>
     <tbody>
-    <tr>
-        <c:forEach var="data" items="${datalist}">
+    <c:forEach var="data" items="${datalist}">
+        <tr>
+            <td>${data.dist}</td>
+            <td>${data.mgrNum}</td>
+            <td>${data.fc}</td>
+            <td>${data.mainNum}</td>
+            <td>${data.add1}</td>
+            <td>${data.add2}</td>
+            <td>${data.instlFloor}</td>
+            <td>${data.instlTy}</td>
+            <td>${data.instlMby}</td>
+            <td>${data.svc}</td>
+            <td>${data.cmcwr}</td>
+            <td>${data.cstcYear}</td>
+            <td>${data.inoutDoor}</td>
+            <td>${data.remarS3}</td>
+            <td>${data.lat2}</td>
+            <td>${data.lnt2}</td>
+            <td>${data.workDttm}</td>
+        </tr>
 
-        <td>${data.dist}</td>
-        <td>${data.mgrNum}</td>
-        <td>${data.fc}</td>
-        <td>${data.mainNum}</td>
-        <td>${data.add1}</td>
-        <td>${data.add2}</td>
-        <td>${data.instlFloor}</td>
-        <td>${data.instlTy}</td>
-        <td>${data.instlMby}</td>
-        <td>${data.svc}</td>
-        <td>${data.cmcwr}</td>
-        <td>${data.cstcYear}</td>
-        <td>${data.inoutDoor}</td>
-        <td>${data.remarS3}</td>
-        <td>${data.lat}</td>
-        <td>${data.lnt}</td>
-        <td>${data.workDttm}</td>
-
-    </tr>
     </c:forEach>
     </tbody>
 </table>
@@ -88,8 +87,8 @@
     }
 
     function input_text(x, y) {
-        document.getElementById("LAT").value = x;
-        document.getElementById("LNT").value = y;
+        document.getElementById("lat1").value = x;
+        document.getElementById("lnt1").value = y;
     }
 </script>
 
