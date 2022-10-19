@@ -16,14 +16,18 @@
 
 </head>
 <body>
+<a href="index.jsp">홈</a>
+<a href="history">위치 히스토리 목록</a>
+<a href="load-wifi">Open API 와이파이 정보 가져오기</a>
+
 <table>
     <thead>
     <tr>
-        <td>ID</td>
-        <td>X좌표</td>
-        <td>Y좌표</td>
-        <td>조회일자</td>
-        <td>비고</td>
+        <th>ID</th>
+        <th>위도</th>
+        <th>경도</th>
+        <th>조회일자</th>
+        <th>비고</th>
     </tr>
     </thead>
 

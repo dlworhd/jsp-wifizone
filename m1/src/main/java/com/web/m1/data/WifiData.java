@@ -162,7 +162,7 @@ public class WifiData implements Comparable<WifiData> {
 
     @Override
     public String toString() {
-        return "DataDAO{" +
+        return "WifiData{" +
                 "dist=" + dist +
                 ", mgrNum='" + mgrNum + '\'' +
                 ", fc='" + fc + '\'' +

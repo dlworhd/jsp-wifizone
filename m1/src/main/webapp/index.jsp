@@ -23,7 +23,7 @@
 <table>
     <thead>
     <tr>
-        <th>거리</th>
+        <th>거리(km)</th>
         <th>관리번호</th>
         <th>자치구</th>
         <th>와이파이명</th>

@@ -1,25 +1,28 @@
 package com.web.m1.data;
 
 public class Calculator {
-    public static double distance(double lat1, double lnt1, double lat2, double lnt2) {
 
-        double theta = lnt1 - lnt2;
-        double dist = Math.sin(deg2rad(lat1)) * Math.sin(deg2rad(lat2)) + Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * Math.cos(deg2rad(theta));
+    public static void main(String[] args) {
 
+    }
+
+    public static double distance(double lat1, double lon1, double lon2, double lat2){
+        double theta = lon1 - lon2;
+        double dist = Math.sin(deg2rad(lat1))* Math.sin(deg2rad(lat2)) + Math.cos(deg2rad(lat1))*Math.cos(deg2rad(lat2))*Math.cos(deg2rad(theta));
         dist = Math.acos(dist);
         dist = rad2deg(dist);
-        dist = dist * 60 * 1.1515;
-
-        return dist;
+        dist = dist * 60*1.1515*1609.344;
+        return Math.round(dist/1000*100)/100.0; //단위 meter
     }
 
 
-    private static double deg2rad(double deg) {
-        return (deg * Math.PI / 180.0);
+    //10진수를 radian(라디안)으로 변환
+    private static double deg2rad(double deg){
+        return (deg * Math.PI/180.0);
     }
-
     //radian(라디안)을 10진수로 변환
-    private static double rad2deg(double rad) {
+    private static double rad2deg(double rad){
         return (rad * 180 / Math.PI);
     }
+
 }

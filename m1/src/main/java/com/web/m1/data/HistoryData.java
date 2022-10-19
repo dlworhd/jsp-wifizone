@@ -6,6 +6,21 @@ public class HistoryData {
     double lnt1;
     String date;
 
+    public int getId() {
+        return id;
+    }
+
+    public double getLat1() {
+        return lat1;
+    }
+
+    public double getLnt1() {
+        return lnt1;
+    }
+
+    public String getDate() {
+        return date;
+    }
 
     public void setId(int id) {
         this.id = id;

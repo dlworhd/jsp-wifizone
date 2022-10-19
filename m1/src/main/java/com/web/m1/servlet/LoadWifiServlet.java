@@ -1,8 +1,8 @@
 package com.web.m1.servlet;
 
-import com.web.m1.db.JdbcConnect;
 import com.web.m1.data.WifiData;
 import com.web.m1.data.JSONParsing;
+import com.web.m1.DB.JdbcConnect;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.ParseException;
@@ -25,7 +25,7 @@ public class LoadWifiServlet extends HttpServlet {
         //Json parsing 로직
         JSONParsing jsonparser = new JSONParsing();
         String mainService = jsonparser.getMAIN_SERVICE();
-        String str = jsonparser.importData("json", mainService, "1", "170");
+        String str = jsonparser.importData("json", mainService, "1", "1000");
         JSONObject jsonObject = null;
         try {
             jsonObject = jsonparser.JSONObjectByService(jsonparser.parsingToJSONObject(str), mainService);

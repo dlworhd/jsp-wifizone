@@ -1,6 +1,6 @@
 package com.web.m1.servlet;
 
-import com.web.m1.db.JdbcConnect;
+import com.web.m1.DB.JdbcConnect;
 import com.web.m1.data.Calculator;
 import com.web.m1.data.WifiData;
 
@@ -14,10 +14,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Stream;
 
 
 @WebServlet("/aroundwifi")
 public class AroundWifiServlet extends HttpServlet {
+
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
@@ -37,14 +40,12 @@ public class AroundWifiServlet extends HttpServlet {
 
 
 
-        System.out.println("DISTANCE 구하기 시작");
         for (int i = 0; i < wifiDataList.size(); i++) {
             double lat2 = wifiDataList.get(i).getLat2();
             double lnt2 = wifiDataList.get(i).getLnt2();
 
             double dist = Calculator.distance(lat1, lnt1, lat2, lnt2);
             wifiDataList.get(i).setDist(dist);
-
             String m = wifiDataList.get(i).getMgrNum();
             double g = wifiDataList.get(i).getDist();
 
@@ -53,8 +54,14 @@ public class AroundWifiServlet extends HttpServlet {
 
         Collections.sort(wifiDataList);
 
+        List<WifiData> list = new ArrayList<>();
+        for (int i = 0; i < 20; i++) {
+            list.add(wifiDataList.get(i));
+        }
 
-        req.setAttribute("datalist", wifiDataList);
+
+
+        req.setAttribute("datalist", list);
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("index.jsp");
         dispatcher.forward(req, resp);

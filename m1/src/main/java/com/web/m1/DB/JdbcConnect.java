@@ -1,4 +1,4 @@
-package com.web.m1.db;
+package com.web.m1.DB;
 
 import com.web.m1.data.HistoryData;
 import com.web.m1.data.WifiData;
@@ -195,9 +195,6 @@ public class JdbcConnect {
                 dataList.add(wifiData);
             }
 
-            for (WifiData wifiData : dataList) {
-                System.out.println(wifiData.toString());
-            }
 
 
         } catch (SQLException e) {
