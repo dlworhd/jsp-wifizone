@@ -9,6 +9,7 @@
 <html>
 <head>
     <title>Title</title>
+    <link rel="stylesheet" href="base.css">
 </head>
 <body>
     ${dataNum}개의 WIFI 정보를 정상적으로 저장하였습니다.

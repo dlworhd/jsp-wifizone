@@ -3,7 +3,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>JSP - Hello World</title>
+    <title>Home</title>
+    <link rel="stylesheet" href="base.css">
 </head>
 <body>
 <h3>와이파이 정보 구하기</h3>
@@ -27,6 +28,7 @@
         <th>자치구</th>
         <th>와이파이명</th>
         <th>도로명주소</th>
+        <th>상세주소</th>
         <th>설치위치(층)</th>
         <th>설치유형</th>
         <th>설치기관</th>

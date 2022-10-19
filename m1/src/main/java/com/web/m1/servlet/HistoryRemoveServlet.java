@@ -1,6 +1,6 @@
 package com.web.m1.servlet;
 
-import com.web.m1.DB.JdbcConnect;
+import com.web.m1.db.JdbcConnect;
 import com.web.m1.data.HistoryData;
 
 import javax.servlet.RequestDispatcher;

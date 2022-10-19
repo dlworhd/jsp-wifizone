@@ -10,7 +10,10 @@
 
 <html>
 <head>
-    <title>Title</title>
+    <title>History</title>
+    <link rel="stylesheet" href="base.css">
+
+
 </head>
 <body>
 <table>

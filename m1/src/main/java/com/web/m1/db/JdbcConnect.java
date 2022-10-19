@@ -1,22 +1,13 @@
-package com.web.m1.DB;
+package com.web.m1.db;
 
 import com.web.m1.data.HistoryData;
 import com.web.m1.data.WifiData;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.util.Date;
 import java.sql.*;
 
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
-
-//        dbTest.insert(0.0, "ARI00001", "서대문구", "상수도사업본부", "서소문로51", "본관 1F", "", "공공행정", "서울시", "공공와이파이", "수도사업소자가망", "2014","실내" , "", "126.96675", "37.561924", "2022-10-17 10:58:03.0");
-//        String sql = "INSERT INTO wifiinfo VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? );";
 
 public class JdbcConnect {
 
@@ -39,7 +30,6 @@ public class JdbcConnect {
 
         try {
             conn = DriverManager.getConnection(url);
-            System.out.println("Connection success!!");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -52,7 +42,6 @@ public class JdbcConnect {
     public void insert(String mgrNum, String fc, String mainNum, String add1, String add2, String instlFloor, String instlTy, String instlMby, String svc, String cmcwr, String cstcYear, String inoutDoor, String remarS3, double lat2, double lnt2, String workDttm) {
 
         String sql = " INSERT INTO WIFIINFO VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ";
-        System.out.println(sql);
 
         //DB Connection
         Connection conn = getConnection();
@@ -112,7 +101,6 @@ public class JdbcConnect {
 
         String date = "datetime('now')";
         String sql = " INSERT INTO HISTORY(lat1, lnt1, date) VALUES(?, ?, ?) ";
-        System.out.println(sql);
         Connection conn = getConnection();
         PreparedStatement stmt = null;
 
@@ -122,7 +110,6 @@ public class JdbcConnect {
             stmt.setDouble(2, lnt1);
             stmt.setString(3, date);
             int count = stmt.executeUpdate();
-            System.out.println(count + "개의 히스토리가 업데이트 되었습니다.");
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
@@ -137,7 +124,6 @@ public class JdbcConnect {
                 e.printStackTrace();
             }
         }
-        System.out.println("history 끝");
 
 
     }

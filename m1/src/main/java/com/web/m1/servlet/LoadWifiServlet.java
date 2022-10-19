@@ -1,6 +1,6 @@
 package com.web.m1.servlet;
 
-import com.web.m1.DB.JdbcConnect;
+import com.web.m1.db.JdbcConnect;
 import com.web.m1.data.WifiData;
 import com.web.m1.data.JSONParsing;
 import org.json.simple.JSONArray;
@@ -57,14 +57,6 @@ public class LoadWifiServlet extends HttpServlet {
                     dataList.get(i).getLnt2(),
                     dataList.get(i).getWorkDttm());
         }
-        System.out.println("JSON Parsing 시작");
-
-        for (WifiData wifiData : dataList) {
-            System.out.println(wifiData.toString());
-        }
-
-        System.out.println("JSON Parsing 끝");
-
 
         req.setAttribute("dataNum", dataList.size());
         RequestDispatcher dispatcher = req.getRequestDispatcher("load-wifi.jsp");

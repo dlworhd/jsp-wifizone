@@ -1,6 +1,6 @@
 package com.web.m1.servlet;
 
-import com.web.m1.DB.JdbcConnect;
+import com.web.m1.db.JdbcConnect;
 import com.web.m1.data.Calculator;
 import com.web.m1.data.WifiData;
 
@@ -32,9 +32,9 @@ public class AroundWifiServlet extends HttpServlet {
         jdbcConnect.insertHistory(lat1, lnt1);
 
 
-        System.out.println("SELECT * FROM 시작");
+
         wifiDataList = jdbcConnect.selectAll();
-        System.out.println("SELECT * FROM 끝");
+
 
 
         System.out.println("DISTANCE 구하기 시작");
@@ -42,24 +42,14 @@ public class AroundWifiServlet extends HttpServlet {
             double lat2 = wifiDataList.get(i).getLat2();
             double lnt2 = wifiDataList.get(i).getLnt2();
 
-            System.out.println(lat2);
-            System.out.println(lnt2);
-
-
             double dist = Calculator.distance(lat1, lnt1, lat2, lnt2);
             wifiDataList.get(i).setDist(dist);
-
 
             String m = wifiDataList.get(i).getMgrNum();
             double g = wifiDataList.get(i).getDist();
 
-            System.out.println(i + "번째 getMgrNum -> "+wifiDataList.get(i).getMgrNum());
-            System.out.println(i + "번째 getDist -> "+wifiDataList.get(i).getDist());
-
-
             jdbcConnect.insertDist(g, m);
         }
-        System.out.println("SELECT * FROM 끝");
 
         Collections.sort(wifiDataList);
 

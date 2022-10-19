@@ -70,13 +70,7 @@ public class JSONParsing {
         return (JSONObject) baseJSONObject.get(service);
     }
 
-    public String getKEY() {
-        return KEY;
-    }
 
-    public String getURL() {
-        return URL;
-    }
 
     public String getMAIN_SERVICE() {
         return MAIN_SERVICE;

@@ -1,0 +1,30 @@
+a {
+    margin: 5px;
+}
+
+table,
+th,
+td {
+    border: 1px solid rgba(58, 65, 58, 0.386);
+    padding: 0px;
+    margin: 0px;
+}
+
+table {
+    width: 100%;
+    margin-top: 20px;
+}
+
+th {
+
+    background-color: rgb(15, 176, 96);
+    color: white;
+    height: 60px;
+
+}
+
+form {
+
+    margin-top: 10px;
+
+}
