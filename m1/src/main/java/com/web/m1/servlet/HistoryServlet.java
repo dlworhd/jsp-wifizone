@@ -2,7 +2,7 @@ package com.web.m1.servlet;
 
 
 import com.web.m1.DB.JdbcConnect;
-import com.web.m1.data.HistoryData;
+import com.web.m1.data.History;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -18,7 +18,7 @@ public class HistoryServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         JdbcConnect jdbcConnect = new JdbcConnect();
-        List<HistoryData> histories = jdbcConnect.selectHistories();
+        List<History> histories = jdbcConnect.selectHistories();
 
 
 

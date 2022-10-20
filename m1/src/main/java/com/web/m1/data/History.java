@@ -1,6 +1,6 @@
 package com.web.m1.data;
 
-public class HistoryData {
+public class History {
     int id;
     double lat1;
     double lnt1;

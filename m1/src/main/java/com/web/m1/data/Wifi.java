@@ -1,7 +1,7 @@
 package com.web.m1.data;
 
 
-public class WifiData implements Comparable<WifiData> {
+public class Wifi implements Comparable<Wifi> {
 
     private double dist;
     private String mgrNum;
@@ -21,7 +21,7 @@ public class WifiData implements Comparable<WifiData> {
     private double lnt2;
     private String workDttm;
 
-    public WifiData() {
+    public Wifi() {
     }
 
     public double getDist() {
@@ -184,7 +184,7 @@ public class WifiData implements Comparable<WifiData> {
     }
 
     @Override
-    public int compareTo(WifiData o) {
+    public int compareTo(Wifi o) {
         if (this.getDist() > o.getDist()) {
             return 1;
         } else if (this.getDist() == o.getDist()) {

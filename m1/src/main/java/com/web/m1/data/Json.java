@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class JSONParsing {
+public class Json {
 
 
 
@@ -95,12 +95,12 @@ public class JSONParsing {
     }
 
 
-    public List<WifiData> JSONToDBdataArray(List<JSONObject> list){
+    public List<Wifi> JSONToDBdataArray(List<JSONObject> list){
 
-        List<WifiData> dataList = new ArrayList<>();
+        List<Wifi> dataList = new ArrayList<>();
 
         for (int i = 0; i < list.size(); i++) {
-            WifiData data = new WifiData();
+            Wifi data = new Wifi();
             data.setMgrNum((String) list.get(i).get("X_SWIFI_MGR_NO"));
             data.setFc((String) list.get(i).get("X_SWIFI_WRDOFC"));
             data.setMainNum((String) list.get(i).get("X_SWIFI_MAIN_NM"));

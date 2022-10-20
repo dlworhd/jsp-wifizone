@@ -1,7 +1,7 @@
 package com.web.m1.DB;
 
-import com.web.m1.data.HistoryData;
-import com.web.m1.data.WifiData;
+import com.web.m1.data.History;
+import com.web.m1.data.Wifi;
 
 import java.text.SimpleDateFormat;
 import java.sql.*;
@@ -41,7 +41,7 @@ public class JdbcConnect {
     // INSERT
     public void insert(String mgrNum, String fc, String mainNum, String add1, String add2, String instlFloor, String instlTy, String instlMby, String svc, String cmcwr, String cstcYear, String inoutDoor, String remarS3, double lat2, double lnt2, String workDttm) {
 
-        String sql = " INSERT INTO WIFIINFO VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ";
+        String sql = " INSERT INTO WIFI VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ";
 
         //DB Connection
         Connection conn = getConnection();
@@ -73,11 +73,7 @@ public class JdbcConnect {
 
             stmt.executeUpdate();
 
-            if (this.count > 0) {
-                System.out.println("저장 성공");
-            } else {
-                System.out.println("저장 실패");
-            }
+
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
@@ -156,10 +152,10 @@ public class JdbcConnect {
         }
     }
 
-    public List<WifiData> selectAll() {
-        String sql = " SELECT * FROM WIFIINFO";
+    public List<Wifi> selectAll() {
+        String sql = " SELECT * FROM WIFI";
 
-        List<WifiData> dataList = new ArrayList<>();
+        List<Wifi> dataList = new ArrayList<>();
         Connection conn = getConnection();
         PreparedStatement stmt = null;
         ResultSet rs = null;
@@ -175,24 +171,24 @@ public class JdbcConnect {
 
         try {
             while (rs.next()) {
-                WifiData wifiData = new WifiData();
-                wifiData.setMgrNum(rs.getString("mgrNum"));
-                wifiData.setFc(rs.getString("fc"));
-                wifiData.setMainNum(rs.getString("mainNum"));
-                wifiData.setAdd1(rs.getString("add1"));
-                wifiData.setAdd2(rs.getString("add2"));
-                wifiData.setInstlFloor(rs.getString("instlFloor"));
-                wifiData.setInstlTy(rs.getString("instlTy"));
-                wifiData.setInstlMby(rs.getString("instlMby"));
-                wifiData.setSvc(rs.getString("svc"));
-                wifiData.setCmcwr(rs.getString("cmcwr"));
-                wifiData.setCstcYear(rs.getString("cstcYear"));
-                wifiData.setInoutDoor(rs.getString("inoutDoor"));
-                wifiData.setRemarS3(rs.getString("remarS3"));
-                wifiData.setLat2(Double.parseDouble(rs.getString("lat2")));
-                wifiData.setLnt2(Double.parseDouble(rs.getString("lnt2")));
-                wifiData.setWorkDttm(rs.getString("workDttm"));
-                dataList.add(wifiData);
+                Wifi wifi = new Wifi();
+                wifi.setMgrNum(rs.getString("mgrNum"));
+                wifi.setFc(rs.getString("fc"));
+                wifi.setMainNum(rs.getString("mainNum"));
+                wifi.setAdd1(rs.getString("add1"));
+                wifi.setAdd2(rs.getString("add2"));
+                wifi.setInstlFloor(rs.getString("instlFloor"));
+                wifi.setInstlTy(rs.getString("instlTy"));
+                wifi.setInstlMby(rs.getString("instlMby"));
+                wifi.setSvc(rs.getString("svc"));
+                wifi.setCmcwr(rs.getString("cmcwr"));
+                wifi.setCstcYear(rs.getString("cstcYear"));
+                wifi.setInoutDoor(rs.getString("inoutDoor"));
+                wifi.setRemarS3(rs.getString("remarS3"));
+                wifi.setLat2(Double.parseDouble(rs.getString("lat2")));
+                wifi.setLnt2(Double.parseDouble(rs.getString("lnt2")));
+                wifi.setWorkDttm(rs.getString("workDttm"));
+                dataList.add(wifi);
             }
 
 
@@ -220,8 +216,8 @@ public class JdbcConnect {
 
     }
 
-    public List<HistoryData> selectHistories() {
-        List<HistoryData> list = new ArrayList<>();
+    public List<History> selectHistories() {
+        List<History> list = new ArrayList<>();
         Connection conn = getConnection();
         String sql = "SELECT * FROM HISTORY";
         ResultSet rs = null;
@@ -230,18 +226,18 @@ public class JdbcConnect {
             rs = stmt.executeQuery();
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             while (rs.next()) {
-                HistoryData historyData = new HistoryData();
-                historyData.setId(rs.getInt("id"));
-                historyData.setLat1(Double.parseDouble(rs.getString("lat1")));
-                historyData.setLnt1(Double.parseDouble(rs.getString("lnt1")));
+                History history = new History();
+                history.setId(rs.getInt("id"));
+                history.setLat1(Double.parseDouble(rs.getString("lat1")));
+                history.setLnt1(Double.parseDouble(rs.getString("lnt1")));
 
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                 Timestamp timestamp = new Timestamp(System.currentTimeMillis());
-                historyData.setDate(sdf.format(timestamp));
+                history.setDate(sdf.format(timestamp));
 
 
 
-                list.add(historyData);
+                list.add(history);
             }
 
 

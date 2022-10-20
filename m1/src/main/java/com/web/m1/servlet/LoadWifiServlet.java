@@ -1,7 +1,7 @@
 package com.web.m1.servlet;
 
-import com.web.m1.data.WifiData;
-import com.web.m1.data.JSONParsing;
+import com.web.m1.data.Wifi;
+import com.web.m1.data.Json;
 import com.web.m1.DB.JdbcConnect;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -23,7 +23,7 @@ public class LoadWifiServlet extends HttpServlet {
         JdbcConnect jdbcConnect = new JdbcConnect();
 
         //Json parsing 로직
-        JSONParsing jsonparser = new JSONParsing();
+        Json jsonparser = new Json();
         String mainService = jsonparser.getMAIN_SERVICE();
         String str = jsonparser.importData("json", mainService, "1", "1000");
         JSONObject jsonObject = null;
@@ -35,7 +35,7 @@ public class LoadWifiServlet extends HttpServlet {
         JSONArray jsonArray = jsonparser.JSONArrayByService(jsonObject, jsonparser.getSUB_SERVICE());
 
         List<JSONObject> list = jsonparser.JSONArrayConvertToArrayList(jsonArray);
-        List<WifiData> dataList = jsonparser.JSONToDBdataArray(list);
+        List<Wifi> dataList = jsonparser.JSONToDBdataArray(list);
 
 
         for (int i = 0; i < dataList.size(); i++) {

@@ -1,7 +1,7 @@
 package com.web.m1.servlet;
 
 import com.web.m1.DB.JdbcConnect;
-import com.web.m1.data.HistoryData;
+import com.web.m1.data.History;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -18,10 +18,10 @@ public class HistoryRemoveServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         JdbcConnect jdbcConnect = new JdbcConnect();
-        List<HistoryData> histories = new ArrayList<>();
+        List<History> histories = new ArrayList<>();
         int id = Integer.parseInt(req.getParameter("id"));
 
-        if(id > 0){
+        if(id >= 0){
             jdbcConnect.removeHistory(id);
             histories = jdbcConnect.selectHistories();
         }
