@@ -1,0 +1,28 @@
+
+a
+java:S1192"FDefine a constant instead of duplicating this literal "UTF-8" 7 times.(Ó®ïùÿÿÿÿ
+h	java:S116"NRename this field "KEY" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Íç¦ƒşÿÿÿÿ
+c	java:S116"NRename this field "URL" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‚¬¯¾
+l	java:S116"WRename this field "MAIN_SERVICE" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ï¸ŠÂ
+k	java:S116"VRename this field "SUB_SERVICE" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(×ŒìÖ
+<
+java:S1170"!Make this final field static too.(Íç¦ƒşÿÿÿÿ
+7
+java:S1170"!Make this final field static too.(‚¬¯¾
+7
+java:S1170"!Make this final field static too.(ï¸ŠÂ
+7
+java:S1170"!Make this final field static too.(×ŒìÖ
+S	java:S106,"9Replace this use of System.out or System.err by a logger.(òûáÉÿÿÿÿÿ
+c	java:S100E"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(æÁ«ˆ
+c	java:S100K"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÀÏÌ
+c	java:S100O"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ëÄ³ã
+h	java:S100S"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(µ£ ‡ÿÿÿÿÿ
+h	java:S100W"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ğ»®”úÿÿÿÿ
+S
+java:S1854Y">Remove this useless assignment to local variable "calculator".(ïÚ­
+?
+java:S2440Y"*Remove this instantiation of "Calculator".(ïÚ­
+D
+java:S1481Y"/Remove this unused "calculator" local variable.(ïÚ­
+c	java:S100b"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Î±Ÿ¯

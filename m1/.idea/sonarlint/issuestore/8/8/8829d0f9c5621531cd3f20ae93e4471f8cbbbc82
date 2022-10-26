@@ -1,0 +1,35 @@
+
+W	java:S107*"=Method has 16 parameters, which is greater than 7 authorized.(²‘­ûÿÿÿÿ
+v	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(İó“8¶®ı¾0
+_
+java:S22599"BA "NullPointerException" could be thrown; "stmt" is nullable here.(¶¿ú8Ï¼Û¾0
+c
+java:S2259­"@A "NullPointerException" could be thrown; "rs" is nullable here.(íôÚÇşÿÿÿÿ8Ï¼Û¾0
+m
+java:S2095¤"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(‚¹ó½8Ï¼Û¾0
+m
+java:S2095á"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ĞÀœ¢8Ï¼Û¾0
+U
+java:S2589’"7Remove this expression which always evaluates to "true"(¡ææú8Ã¥¾Û¾0
+U
+java:S2589š"7Remove this expression which always evaluates to "true"(¡ææú8ŸÏ¼Û¾0
+U
+java:S2589Î"7Remove this expression which always evaluates to "true"(¡ææú8ŸÏ¼Û¾0
+Z
+java:S2589È"7Remove this expression which always evaluates to "true"(Ñ¿È©ûÿÿÿÿ8ŸÏ¼Û¾0
+T
+java:S2589R"7Remove this expression which always evaluates to "true"(±”Ìï8ŸÏ¼Û¾0
+T
+java:S2589t"7Remove this expression which always evaluates to "true"(¡ææú8Å¥¾Û¾0
+T
+java:S2589U"7Remove this expression which always evaluates to "true"(¡ææú8ŸÏ¼Û¾0
+U
+java:S2589ü"7Remove this expression which always evaluates to "true"(¡ææú8ŸÏ¼Û¾0
+U
+java:S2589Ë"7Remove this expression which always evaluates to "true"(±”Ìï8ŸÏ¼Û¾0
+V
+java:S1117l"9Rename "count" which hides the field declared at line 14.(®—è„8©Ï¼Û¾0
+G
+java:S1481l"*Remove this unused "count" local variable.(®—è„8Ë»°î¾0
+Q
+java:S1481ã".Remove this unused "formatter" local variable.(–ä·ùÿÿÿÿ8â£ßÛ¾0

@@ -1,0 +1,9 @@
+
+W
+java:S1854"<Remove this useless assignment to local variable "wifiList".(¸ËÎ–ıÿÿÿÿ
+r
+java:S1989"\Handle the following exception that could be thrown by "parseDouble": NumberFormatException.(•“ÄÍ
+r
+java:S1989"\Handle the following exception that could be thrown by "parseDouble": NumberFormatException.(«ãåÈ
+w
+java:S1989B"aHandle the following exceptions that could be thrown by "forward": ServletException, IOException.(òø½
